@@ -1,0 +1,21 @@
+{
+    "name": "aciliainternet/component-fragment-cache",
+    "type": "component",
+    "description": "Acilia Component for Fragment Cache",
+    "keywords": ["memcached", "cache", "component"],
+    "homepage": "https://github.com/aciliainternet/ComponentFragmentCache",
+    "authors": [
+        {
+            "name": "Acilia Internet",
+            "homepage": "http://acilia.es"
+        }
+    ],
+    "require": {
+        "php":       ">=5.3.3",
+        "aciliainternet/component-memcached": ">=0.1"
+    },
+    "autoload": {
+        "psr-0": { "Acilia\\Component\\FragmentCache": "" }
+    },
+    "target-dir": "Acilia/Component/FragmentCache"
+}
