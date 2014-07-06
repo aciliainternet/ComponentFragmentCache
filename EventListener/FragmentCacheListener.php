@@ -10,7 +10,7 @@
 
 namespace Acilia\Component\FragmentCache\EventListener;
 
-use Acilia\Component\FragmentCache\Configuration\FragmentCacheConfiguration;
+use Acilia\Component\FragmentCache\Configuration\FragmentCache;
 use Acilia\Component\FragmentCache\Event\KeyGenerationEvent;
 use Acilia\Component\Memcached\Service\MemcachedService;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
@@ -209,12 +209,12 @@ class FragmentCacheListener implements EventSubscriberInterface
     /**
      * Calculates the cache Key of the Fragment
      *
-     * @param \Acilia\Component\FragmentCache\Configuration\FragmentCacheConfiguration $configuration
+     * @param \Acilia\Component\FragmentCache\Configuration\FragmentCache $configuration
      * @param \Symfony\Component\HttpFoundation\Request $subRequest
      * @param \Symfony\Component\HttpFoundation\Request $masterRequest
      * @return string
      */
-    protected function getKey(FragmentCacheConfiguration $configuration, Request $subRequest, Request $masterRequest)
+    protected function getKey(FragmentCache $configuration, Request $subRequest, Request $masterRequest)
     {
         $event = new KeyGenerationEvent($configuration, $subRequest, $masterRequest);
 

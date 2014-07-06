@@ -18,7 +18,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationAnnotation;
  *
  * @author Acilia Internet <info@acilia.es>
  */
-class FragmentCacheConfiguration extends ConfigurationAnnotation
+class FragmentCache extends ConfigurationAnnotation
 {
     /**
      * Expiration time in minutes
@@ -52,7 +52,7 @@ class FragmentCacheConfiguration extends ConfigurationAnnotation
     /**
      * Sets the Expiration, in minutes
      * @param string $expiration
-     * @return \Acilia\Component\FragmentCache\Configuration\FragmentCacheConfiguration
+     * @return \Acilia\Component\FragmentCache\Configuration\FragmentCache
      */
     public function setExpiration($expiration)
     {
@@ -76,7 +76,7 @@ class FragmentCacheConfiguration extends ConfigurationAnnotation
     /**
      * Sets the Version
      * @param integer $version
-     * @return \Acilia\Component\FragmentCache\Configuration\FragmentCacheConfiguration
+     * @return \Acilia\Component\FragmentCache\Configuration\FragmentCache
      */
     public function setVersion($version)
     {
@@ -100,7 +100,7 @@ class FragmentCacheConfiguration extends ConfigurationAnnotation
     /**
      * Sets the Custom Options
      * @param array $options
-     * @return \Acilia\Component\FragmentCache\Configuration\FragmentCacheConfiguration
+     * @return \Acilia\Component\FragmentCache\Configuration\FragmentCache
      */
     public function setOptions($options)
     {

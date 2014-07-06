@@ -10,7 +10,7 @@
 
 namespace Acilia\Component\FragmentCache\Event;
 
-use Acilia\Component\FragmentCache\Configuration\FragmentCacheConfiguration;
+use Acilia\Component\FragmentCache\Configuration\FragmentCache;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -29,7 +29,7 @@ class KeyGenerationEvent extends Event
 
     /**
      * The Configuration of the Fragment Cache
-     * @var \Acilia\Component\FragmentCache\Configuration\FragmentCacheConfiguration
+     * @var \Acilia\Component\FragmentCache\Configuration\FragmentCache
      */
     protected $configuration;
 
@@ -54,11 +54,11 @@ class KeyGenerationEvent extends Event
     /**
      * Constructor
      *
-     * @param \Acilia\Component\FragmentCache\Configuration\FragmentCacheConfiguration $configuration
+     * @param \Acilia\Component\FragmentCache\Configuration\FragmentCache $configuration
      * @param \Symfony\Component\HttpFoundation\Request $subRequest
      * @param \Symfony\Component\HttpFoundation\Request $masterRequest
      */
-    public function __construct(FragmentCacheConfiguration $configuration, Request $subRequest, Request $masterRequest)
+    public function __construct(FragmentCache $configuration, Request $subRequest, Request $masterRequest)
     {
         $this->configuration = $configuration;
         $this->subRequest = $subRequest;
@@ -68,7 +68,7 @@ class KeyGenerationEvent extends Event
 
     /**
      * Get the Fragment Configuration
-     * @return \Acilia\Component\FragmentCache\Configuration\FragmentCacheConfiguration
+     * @return \Acilia\Component\FragmentCache\Configuration\FragmentCache
      */
     public function getConfigurarion()
     {
