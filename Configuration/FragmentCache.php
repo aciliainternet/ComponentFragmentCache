@@ -41,9 +41,11 @@ class FragmentCache extends ConfigurationAnnotation
      */
     protected $options;
 
-    public function __construct()
+    public function __construct(array $values)
     {
         $this->options = new ParameterBag();
+
+        parent::__construct($values);
     }
 
     /**
