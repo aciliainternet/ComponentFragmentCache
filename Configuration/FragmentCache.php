@@ -11,6 +11,7 @@
 namespace Acilia\Component\FragmentCache\Configuration;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ConfigurationAnnotation;
+use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * @Annotation
@@ -36,9 +37,14 @@ class FragmentCache extends ConfigurationAnnotation
     /**
      * Custom Options
      *
-     * @var array
+     * @var \Symfony\Component\HttpFoundation\ParameterBag
      */
     protected $options;
+
+    public function __construct()
+    {
+        $this->options = new ParameterBag();
+    }
 
     /**
      * Get the Expiration, returned in minutes
@@ -90,7 +96,7 @@ class FragmentCache extends ConfigurationAnnotation
 
     /**
      * Get the Custom Options
-     * @return array
+     * @return \Symfony\Component\HttpFoundation\ParameterBag
      */
     public function getOptions()
     {
@@ -108,7 +114,7 @@ class FragmentCache extends ConfigurationAnnotation
             $options = array();
         }
 
-        $this->options = $options;
+        $this->options->replace($options);
         return $this;
     }
 
