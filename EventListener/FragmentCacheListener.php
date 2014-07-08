@@ -165,13 +165,13 @@ class FragmentCacheListener implements EventSubscriberInterface
             return;
         }
 
-        // If Key is present, save content for that key, expiration saved in seconds retreived in minutes
+        // If Key is present, save content for that key, expiration retreived in minutes
         if (($key = $subRequest->attributes->get('_acilia_component_fragment_cache_key', false)) !== false) {
             if ($this->enabled) {
                 $this->cache->set(
                     $key,
                     $event->getResponse()->getContent(),
-                    $configuration->getExpiration() * 60
+                    $configuration->getExpiration()
                 );
 
                 $fragment = '';
