@@ -218,22 +218,22 @@ class FragmentCacheListener implements EventSubscriberInterface
     {
         $event = new KeyGenerationEvent($configuration, $subRequest, $masterRequest);
 
-        $keyRequest = sha1($subRequest->getRequestUri())
-            . ':'
-            . sha1($masterRequest->getRequestUri());
+        $keypart = array();
+        $keypart[] = sha1($subRequest->getRequestUri());
+        $keypart[] = sha1($masterRequest->getRequestUri());
 
         $key = array(
             'AciliaComponentFragmentCache',
             $this->environment,
-            'v' . $configuration->getVersion(),
-            $keyRequest
+            'v' . $configuration->getVersion()
         );
 
         $this->dispatcher->dispatch(KeyGenerationEvent::NAME, $event);
         if (count($event->getKeys()) > 0) {
-            $key = array_merge($key, $event->getKeys());
+            $keypart = array_merge($keypart, $event->getKeys());
         }
 
+        $key[] = sha1(implode(':', $keypart));
         $key = implode(':', $key);
         return $key;
     }
