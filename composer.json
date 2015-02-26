@@ -10,6 +10,7 @@
             "homepage": "http://acilia.es"
         }
     ],
+    "license": "MIT",
     "require": {
         "php":       ">=5.3.3",
         "aciliainternet/component-memcached": ">=0.1"
