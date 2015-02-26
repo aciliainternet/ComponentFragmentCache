@@ -138,7 +138,6 @@ class FragmentCacheListener implements EventSubscriberInterface
             $event->setController(function () use ($response) {
                 return $response;
             });
-
         } else {
             $subRequest->attributes->set('_acilia_component_fragment_cache_key', $key);
         }
@@ -186,8 +185,7 @@ class FragmentCacheListener implements EventSubscriberInterface
                 }
 
                 $event->getResponse()->setContent($fragment);
-
-            } else if (!$this->enabled) {
+            } elseif (!$this->enabled) {
                 $fragment = '';
                 if ($this->debug) {
                     $fragment .= '<!-- DISABLED - Begin Fragment Cache for KEY: ' . $key . ' -->';
